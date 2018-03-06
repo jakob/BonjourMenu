@@ -8,13 +8,17 @@
 
 import Cocoa
 
+extension NSImage.Name {
+    static let statusIcon = NSImage.Name(rawValue:"StatusIcon")
+}
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let statusMenu = NSMenu()
-    let statusIcon = #imageLiteral(resourceName: "StatusIcon.pdf")
+    let statusIcon = NSImage(named: .statusIcon)
 
     @IBOutlet weak var window: NSWindow!
 
