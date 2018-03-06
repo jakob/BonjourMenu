@@ -8,12 +8,25 @@
 
 import Cocoa
 
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    let statusMenu = NSMenu()
+    let statusIcon = #imageLiteral(resourceName: "StatusIcon.pdf")
+
     @IBOutlet weak var window: NSWindow!
 
-
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        statusItem.menu = statusMenu
+        statusItem.image = statusIcon
+        let loadingItem = NSMenuItem(title: "Searching...", action: nil, keyEquivalent: "")
+        let quitItem = NSMenuItem(title: "Quit Bonjour Menu", action: #selector(NSApplication.terminate), keyEquivalent: "")
+        statusMenu.addItem(loadingItem)
+        statusMenu.addItem(quitItem)
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
