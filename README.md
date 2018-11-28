@@ -2,6 +2,8 @@
 
 This is a simple menu bar app for macOS.
 
+![Screenshot of Bonjour Menu](/screenshot.jpg?raw=true)
+
 It uses Bonjour to look for Web Sites and PostgreSQL servers on the local network.
 
 Selecting a server connects to it by opening the advertised URL (PostgreSQL servers work best with Postico!).
